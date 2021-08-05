@@ -1,4 +1,4 @@
-package com.logparsing.logparsing.service;
+package com.verifone.logparsing.service;
 
 import java.io.Serializable;
 

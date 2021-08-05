@@ -1,14 +1,13 @@
-package com.logparsing.logparsing.service;
+package com.verifone.logparsing.service;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.logparsing.logparsing.TodoWebProperties;
 
 @Service
 public class Read {
@@ -16,7 +15,11 @@ public class Read {
 	VlogsRepo vlogsRepo;
 
 	public void dimeboxValidationTimeTakenFileWrite() throws IOException {
-		File files = new File(TodoWebProperties.getProperty("source"));
+		
+		 Scanner myObj = new Scanner(System.in);
+		 System.out.println("please provide log file location:");
+		 String filepath = myObj.nextLine(); 
+		File files = new File(filepath);
 		// Fetching all the files
 		File[] filearray = files.listFiles();
 		System.out.println("Number of Log files:" + filearray.length);
