@@ -1,12 +1,12 @@
-package com.logparsing.logparsing.service;
+package com.verifone.logparsing.service;
 
 import java.io.FileWriter;
 import java.util.List;
+import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.logparsing.logparsing.TodoWebProperties;
 import com.opencsv.CSVWriter;
 
 @Service
@@ -16,8 +16,11 @@ public class Write {
 	VlogsRepo vlogsRepo;
 
 	public void csvwriter() {
+		 Scanner myObj = new Scanner(System.in);
+		 System.out.println("please provide CSV file location:");
+		 String filepath = myObj.nextLine(); 
 
-		try (CSVWriter dimeboxcsvWrite = new CSVWriter(new FileWriter(TodoWebProperties.getProperty("destn")));) {
+		try (CSVWriter dimeboxcsvWrite = new CSVWriter(new FileWriter(filepath));) {
 
 			String dimeboxheader[] = { "Gateway_Trace_Id", "Detokenization TIME TAKEN", "Validation TIME TAKEN:",
 					"Dimebox Call TIME TAKEN" };
